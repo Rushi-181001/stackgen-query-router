@@ -10,14 +10,14 @@ class GitHubAgent:
         ]
     
     def handle(self, question):
-        """Answer GitHub-related questions"""
+        #Answer GitHub-related questions
         question_lower = question.lower()
         
-        # Check if they're asking about open PRs
+        
         # Check if they're asking about PRs
         if "pull request" in question_lower or "pr" in question_lower:
             
-            # If asking for closed, show closed
+            # If asking for closed, it shows closed pr information
             if "closed" in question_lower:
                 prs = [pr for pr in self.pull_requests if pr["status"] == "closed"]
                 response = f"You have {len(prs)} closed pull requests:\n"
@@ -25,7 +25,7 @@ class GitHubAgent:
                     response += f"  - PR #{pr['number']}: {pr['title']}\n"
                 return response
             
-            # If asking for open, show open
+            # If asking for open, it shows open pr information
             elif "open" in question_lower:
                 prs = [pr for pr in self.pull_requests if pr["status"] == "open"]
                 response = f"You have {len(prs)} open pull requests:\n"
@@ -49,7 +49,7 @@ class GitHubAgent:
                 
                 return response
 
-        # Default response
+        # Default response in case the keyword (pr or pull request ) is not used
         return "Here are your pull requests: 4 total (2 open, 2 closed)"
         
         
