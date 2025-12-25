@@ -21,7 +21,7 @@ def main():
         if query.lower() == 'quit':
             print("Goodbye!")
             break
-        
+        # To route the  query to appropriate agent and then get back with a response
         answer = router.route_question(query)
         print("\nAnswer: " + answer + "\n")
         print("-"*50 + "\n")
