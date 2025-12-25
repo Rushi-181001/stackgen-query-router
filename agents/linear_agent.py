@@ -11,13 +11,13 @@ class LinearAgent:
         ]
     
     def handle(self, question):
-        """Answer Linear-related questions"""
+        # Answer Linear-related questions
         question_lower = question.lower()
         
-        # Check if they're asking about issues
+        # Checking if the query question asking about issues
         if "issue" in question_lower or "task" in question_lower:
             
-            # If asking for unassigned, show unassigned
+            # If asking for unassigned,shows unassigned task information
             if "unassigned" in question_lower:
                 issues = [issue for issue in self.issues if not issue["assigned"]]
                 response = f"You have {len(issues)} unassigned issues:\n"
@@ -25,7 +25,7 @@ class LinearAgent:
                     response += f"  - Issue #{issue['id']}: {issue['title']}\n"
                 return response
             
-            # If asking for assigned, show assigned
+            # If asking for assigned, shows assigned task information
             elif "assigned" in question_lower or "my" in question_lower:
                 issues = [issue for issue in self.issues if issue["assigned"]]
                 response = f"You have {len(issues)} issues assigned to you:\n"
@@ -48,3 +48,7 @@ class LinearAgent:
                     response += f"  - Issue #{issue['id']}: {issue['title']}\n"
                 
                 return response
+                
+        return "Here are your issues: 4 total (2 assigned, 2 unassigned)"
+        
+    
