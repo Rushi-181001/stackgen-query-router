@@ -65,7 +65,7 @@ project/
 1. Clone the repository:
 
 ```bash
-git clone <https://github.com/Rushi-181001/stackgen-query-router.git>
+git clone https://github.com/Rushi-181001/stackgen-query-router.git
 cd project
 ```
 
