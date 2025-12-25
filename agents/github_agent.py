@@ -2,7 +2,7 @@ class GitHubAgent:
     """Handles questions about GitHub (pull requests, repos, etc.)"""
     
     def __init__(self):
-        # Some fake pull request data
+        # Some dumy pull request data
         self.pull_requests = [
             {"number": 1, "title": "Add login feature", "status": "open"},
             {"number": 2, "title": "Fix bug in homepage", "status": "open"},
