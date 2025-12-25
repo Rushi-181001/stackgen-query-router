@@ -47,7 +47,7 @@ If a question does not match any agent, the router will politely respond:
 ## Project Structure
 
 ```
-project/
+stackgen-query-router/
 │── main.py              # CLI entry point
 │── router.py            # Routes questions to its reaponsible agent
 │── agents/
