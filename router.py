@@ -5,7 +5,7 @@ class Router:
     """Decides which agent should handle each question"""
     
     def __init__(self):
-        # Create our agents
+        # Created two agents for query processing
         self.github_agent = GitHubAgent()
         self.linear_agent = LinearAgent()
         
@@ -16,7 +16,7 @@ class Router:
         self.linear_keywords = ["issue", "ticket", "task", "assigned", "project", "unassigned"]
     
     def route_question(self, question):
-        """Figure out which agent should answer this question"""
+        # To figure out which agent should answer the query
         question_lower = question.lower()
         
         # Check if it's a GitHub question
@@ -33,6 +33,6 @@ class Router:
                 answer = self.linear_agent.handle(question)
                 return answer
         
-        # If no keywords match, we can't answer
+        # If no keywords match, i cannot answer
         print("→ No matching agent found")
         return "I cannot answer this question"
