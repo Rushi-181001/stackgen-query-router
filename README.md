@@ -151,7 +151,7 @@ Answer: You have 1 closed pull requests:
 
 Query>
 
----
+```
 
 ## Notes
 
