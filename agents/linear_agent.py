@@ -2,7 +2,7 @@ class LinearAgent:
     """Handles questions about Linear (issues, tasks, etc.)"""
     
     def __init__(self):
-        # Some fake issue data
+        # Some dumy issue data
         self.issues = [
             {"id": 101, "title": "Design new homepage", "assigned": True},
             {"id": 102, "title": "Fix login bug", "assigned": True},
