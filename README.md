@@ -65,7 +65,7 @@ project/
 1. Clone the repository:
 
 ```bash
-git clone <your-repo-url>
+git clone <https://github.com/Rushi-181001/stackgen-query-router.git>
 cd project
 ```
 
@@ -107,7 +107,7 @@ pip install pytest
 2. Run tests:
 
 ```bash
-pytest
+python -m pytest -v
 ```
 
 You should see output indicating all tests passed.
@@ -120,9 +120,24 @@ You should see output indicating all tests passed.
 
   * In a production system, a proper NLP intent classifier would be ideal as it can be more accurate in understanding which agent is best for that particular input query.
 * Each agent is **independent** to allow easy extension (easy to add more agents in future).
+  
+  1. Create a new agent class in the agents/ folder, e.g., jira_agent.py, with a handle(self, question) method.
+  2. Define keywords in Router.__init__() that indicate when the new agent should handle a query.
+  3. Initialize the new agent in the router and assign its keywords.
+  4. Update routing logic in Router.route_question() to check for the new keywords and route queries to the new agent.
+  5. Add optional tests to ensure queries are routed correctly.
+
+  This design keeps agents independent, so adding a new agent does not require modifying existing agent code, only the router.
+  
+  
+  
+  
 * Mock data is hard-coded to simulate realistic responses.
 * CLI was chosen for simplicity and easy demonstration of routing behavior.
 * Minor logging (`print` statements) is included to show routing decisions, making it easy to understand why a question went to a certain agent.
+* Tests cover **all main routing scenarios** (GitHub, Linear, and unknown queries).
+
+
 
 ---
 
@@ -153,7 +168,20 @@ Query>
 
 ```
 
-## Notes
+* Test file Output
+```
+plugins: anyio-3.5.0
+collected 3 items                                                                                 
+
+tests/test_router.py::test_route_to_github_agent PASSED                                     [ 33%]
+tests/test_router.py::test_route_to_linear_agent PASSED                                     [ 66%]
+tests/test_router.py::test_route_to_no_agent PASSED                                         [100%]
+
+======================================= 3 passed in 0.02s ========================================
+
+```
 
 
-* Tests cover **all main routing scenarios** (GitHub, Linear, and unknown queries).
+
+
+
